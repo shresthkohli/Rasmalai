@@ -53,6 +53,10 @@ function Login() {
 
         }
 
+        else{
+            alert(result.message);
+        }
+
 
     }
 

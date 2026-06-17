@@ -38,12 +38,13 @@ function Home({posts, setPosts}){
 
             <Hero />
 
-
+            <hr />
 
             <section>
 
 
                 <h2 className="
+                my-10
                 text-3xl
                 font-bold
                 mb-8

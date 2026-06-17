@@ -36,3 +36,20 @@ export async function logoutUser(){
 
 
 }
+
+
+// DELETE ACCOUNT
+export async function deleteAccount() {
+    
+
+    const res = await fetch("/api/user/deleteAccount",{
+
+        method: "DELETE",
+
+        credentials: "include"
+
+    });
+
+    return await res.json();
+
+}

@@ -1,10 +1,15 @@
-function Profile(){
+import DeleteAccountBtn from "../components/DeleteAccountBtn";
+
+function Profile() {
 
     return (
+        <>
+            <h1>
+                Profile Page
+            </h1>
 
-        <h1>
-            Profile Page
-        </h1>
+            <DeleteAccountBtn />
+        </>
 
     )
 

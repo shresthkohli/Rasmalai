@@ -17,5 +17,8 @@ const signupSchema = z.object({
 });
 
 
-module.exports =
-signupSchema;
+module.exports = {
+
+    signUpSchema: signupSchema
+
+};

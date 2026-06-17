@@ -22,7 +22,7 @@ router.get(
 );
 
 // DELETE ACCOUNT ENDPOINT
-router.post(
+router.delete(
 "/deleteAccount", userController.deleteAccount
 );
 

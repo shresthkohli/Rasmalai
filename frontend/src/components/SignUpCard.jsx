@@ -2,11 +2,12 @@ import { useState } from "react";
 
 import { signupUser } from "../api/authApi";
 
-import SignupCard from "../components/SignUpCard";
+import { useNavigate } from "react-router-dom";
 
 
-function Signup(){
+function SignupCard(){
 
+    const Navigate = useNavigate();
 
     const [username,setUsername] = useState("");
 
@@ -14,12 +15,10 @@ function Signup(){
 
 
 
-    async function handleSignup(e){
+    async function handleClick(e){
 
 
         e.preventDefault();
-
-
 
         const result = await signupUser(
 
@@ -29,10 +28,23 @@ function Signup(){
 
         );
 
+        console.log("RESULT: ", result);
 
+        if (result.success) {
 
-        console.log(result);
+            alert(result.message);
 
+            console.log(result);
+
+            Navigate("/");
+
+        }
+
+        else {
+
+            alert(result.message);
+
+        }
 
     }
 
@@ -40,7 +52,7 @@ function Signup(){
 
     return (
 
-        <div className="p-8">
+        <div className="p-8 m-10 border rounded-4xl">
 
 
             <h1 className="text-3xl font-bold mb-5">
@@ -53,7 +65,7 @@ function Signup(){
 
             <form
 
-            onSubmit={handleSignup}
+            onSubmit={handleClick}
 
             className="flex flex-col gap-4 max-w-sm"
 
@@ -104,8 +116,6 @@ function Signup(){
 
             </form>
 
-            <SignupCard />
-
 
         </div>
 
@@ -114,4 +124,4 @@ function Signup(){
 }
 
 
-export default Signup;
+export default SignupCard;
