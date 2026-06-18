@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import LogoutBtn from "./LogoutButton";
+import PostSomethingBtn from "./PostSomethingBtn";
 
 
 function Navbar() {
@@ -11,16 +13,11 @@ function Navbar() {
 
     return (
 
-        <nav className="flex justify-between items-center px-8 py-4 bg-slate-900 text-white">
+        <nav className="flex justify-between items-center px-6 py-4 bg-black text-white sticky top-0 z-50 w-full shadow-md">
 
-
-            <h2 className="text-2xl font-bold">
-                MyApp
-            </h2>
-
-
-
-            <Link to="/">
+            <Link to="/"
+            className="hover:text-blue-400"
+            >
 
                 Home
 
@@ -32,19 +29,9 @@ function Navbar() {
                 user ?
 
                     <>
-
-
-                        <span className="mr-5">
-
-                            Welcome {user.username}
-
-                        </span>
-
-
-
                         <Link
 
-                            className="mr-5 hover:text-blue-400"
+                            className="hover:text-blue-400"
 
                             to="/profile">
 
@@ -52,70 +39,38 @@ function Navbar() {
 
                         </Link>
 
-
                         <Link
-
-                            className="mr-5 hover:text-blue-400"
-
+                            className="hover:text-blue-400"
                             to="/create-post"
-
                         >
-
-                            Create
-
+                            Post Something
                         </Link>
 
-
-                        <button
-
-                            onClick={logout}
-
-                            className="bg-red-500 px-4 py-2 rounded-lg"
-
-                        >
-
-                            Logout
-
-                        </button>
-
-
+                        <LogoutBtn />
                     </>
-
-
                     :
-
-
                     <>
-
-
                         <Link
-
                             to="/login"
-
-                            className="mx-3 hover:text-blue-400">
+                            className="hover:text-blue-400"
+                        >
 
                             Login
 
                         </Link>
 
-
-
                         <Link
-
                             to="/signup"
-
-                            className="mx-3 hover:text-blue-400">
+                            className="hover:text-blue-400"
+                        >
 
                             Signup
 
                         </Link>
 
-
                     </>
 
-
             }
-
 
         </nav>
 

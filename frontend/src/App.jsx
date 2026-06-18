@@ -9,6 +9,7 @@ import {
 
 
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -115,7 +116,7 @@ function App() {
 
           element={
 
-            <ProtectedRoute>
+            <ProtectedRoute user={user}>
 
               <CreatePost setPosts = {setPosts} />
 
@@ -127,6 +128,8 @@ function App() {
 
 
       </Routes>
+
+      <Footer />
 
 
     </BrowserRouter>

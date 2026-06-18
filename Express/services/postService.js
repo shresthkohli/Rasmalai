@@ -89,6 +89,41 @@ async function getPosts() {
 }
 
 
+// GET MY POSTS SERVICE
+async function getMyPosts(userId) {
+
+
+    const result = await mydatabase.query(
+
+        `
+        SELECT 
+            posts.id,
+            posts.title,
+            posts.content,
+            posts.created_at,
+            users.username
+
+        FROM posts
+
+        JOIN users
+
+        ON posts.user_id = users.id
+        WHERE user_id = $1
+
+        ORDER BY created_at DESC
+
+        `,
+
+        [userId]
+
+    );
+
+
+    return result.rows;
+
+}
+
+
 // DELETE POST SERVICE
 async function deletePost(postId, username){
 
@@ -171,6 +206,7 @@ module.exports = {
 
     createPost,
     getPosts,
+    getMyPosts,
     deletePost
 
 };

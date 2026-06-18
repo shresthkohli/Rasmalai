@@ -1,47 +1,142 @@
-function PostCard({post}){
+import { useAuth } from "../context/AuthContext";
+import { deletePost } from "../api/postApi";
 
+function PostCard({ post, onDelete }) {
+
+    const { user } = useAuth();
+
+    async function handleDelete() {
+
+        const confirmation = window.confirm(
+            "Delete this post?"
+        );
+
+
+        if (!confirmation) {
+
+            return;
+
+        }
+
+
+        const result = await deletePost(post.id);
+
+
+        if (result.success) {
+
+            onDelete(post.id);
+
+        }
+
+        alert(result.message);
+
+    }
 
     return (
 
-        <div className="
-        bg-white
-        shadow-lg
-        rounded-xl
-        p-5
-        border
-        ">
+        <div
+            className="
+            mx-auto
+            my-10
+            p-2
+            border-2
+            border-dashed
+            rounded-3xl
+            w-full
+            landscape:w-[70%]
+            max-w-[900px]
+            h-auto
+            bg-gray-200
+            shadow-md
+            "
+        >
+            <div className="flex justify-end">
+                {
+                    user &&
+                    user.username === post.username &&
 
+                    <button
 
-            <h2 className="
-            text-2xl
-            font-semibold
-            ">
+                    onClick={handleDelete}
 
-                {post.title}
+                    className="
+                    bg-red-300
+                    p-2
+                    rounded-xl
+                    "
 
-            </h2>
+                    >
 
+                        Delete Post
 
+                    </button>
+                }
+            </div>
 
-            <p className="
-            mt-3
-            text-gray-600
-            ">
+            <div 
+            className="
+            flex
+            justify-between
+            text-gray-500
+            "
+            >
+                <small
+                className="
+                m-2
+                text-lg
+                "
+                >
+                    By {post.username}
+                </small>
+                
+                <small
+                className="
+                m-2
+                text-lg
+                text-end
+                "
+                >
+                    Posted on {
+                        new Date(post.created_at).toLocaleDateString(
+                            "en-IN",
+                            {
+                                day: "numeric",
+                                month: "long",
+                                year: "numeric"
+                            }
+                        )
+                    }
+                </small>
 
-                {post.content}
+            </div>
+            <div
+            className="
+            bg-white
+            p-5
+            rounded-2xl
+            "
+            >
 
-            </p>
+                <h2 className="
+                text-2xl
+                font-semibold
+                ">
 
+                    {post.title}
 
+                </h2>
 
-            <small className="
-            text-blue-600
-            ">
+                <hr />
 
-                By {post.username}
+                <p className="
+                mt-3
+                text-gray-600
+                ">
 
-            </small>
+                    {post.content}
 
+                </p>
+            </div>
 
         </div>
 

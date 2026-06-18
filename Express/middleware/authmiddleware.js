@@ -30,8 +30,10 @@ async function requireLogin(req,res,next){
 
     }
 
+    console.log(user);
 
     req.username = user.username;
+    req.user_id = user.user_id;
     req.sessionId = sessionId;
 
 

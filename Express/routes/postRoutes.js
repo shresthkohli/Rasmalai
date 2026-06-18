@@ -25,6 +25,13 @@ router.get(
     postController.getPosts
 );
 
+// GET MY POSTS ROUTER
+router.get(
+    "/me",
+    requireLogin,
+    postController.getMyPosts
+);
+
 // DLETE POST ROUTER
 router.delete(
     "/:id",

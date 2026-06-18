@@ -22,18 +22,16 @@ export default function DeleteAccountBtn() {
 
             }
 
-            else {
-                alert(result.message);
-                console.log("DELETED USER: ", result);
-                setUser(null);
-            }
+            alert(result.message);
 
         }
 
     }
 
     return (
-        <button onClick={handleClick}>
+        <button onClick={handleClick}
+            className="m-5 p-2 hover:text-red-500 border-r border-l"
+        >
             Delete account
         </button>
     );

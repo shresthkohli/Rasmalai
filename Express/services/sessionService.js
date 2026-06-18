@@ -30,7 +30,10 @@ async function getSession(sessionId) {
     const result = 
         await mydatabase.query(
             `
-            SELECT users.username
+            SELECT
+            users.username,
+            sessions.user_id
+            
             FROM sessions
             JOIN users
             ON sessions.user_id = users.id

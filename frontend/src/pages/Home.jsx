@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useAuth } from "../context/AuthContext";
 
 import Hero from "../components/Hero";
 import PostCard from "../components/PostCard";
@@ -8,6 +9,7 @@ import { getPosts } from "../api/postApi";
 
 
 function Home({posts, setPosts}){
+    const {user} = useAuth();
 
     useEffect(()=>{
 
@@ -38,16 +40,25 @@ function Home({posts, setPosts}){
 
             <Hero />
 
-            <hr />
+            <hr className="w-auto"/>
 
-            <section>
+            <section
+            className="
+            grid
+            gap-6
+            flex
+            flex-col
+            items-center
+            p-4
+            "
+            >
 
 
                 <h2 className="
-                my-10
+                mx-auto
                 text-3xl
                 font-bold
-                mb-8
+                
                 ">
 
                     Latest Posts
@@ -56,10 +67,7 @@ function Home({posts, setPosts}){
 
 
 
-                <div className="
-                grid
-                gap-6
-                ">
+                <div>
 
 
                 {

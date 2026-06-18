@@ -7,7 +7,7 @@ const passwordInput = document.getElementById("password");
 const deleteBtn = document.getElementById("deleteBtn");
 
 async () => {
-    const me = await fetch("/me");
+    const me = await fetch("/api/me");
     const user = await me.json();
 };
 
@@ -18,7 +18,7 @@ signupBtn.addEventListener("click", async () => {
         password: passwordInput.value
     };
 
-    const response = await fetch("/auth/signUp", {
+    const response = await fetch("/api/auth/signUp", {
 
         method: "POST",
 
@@ -44,7 +44,7 @@ loginBtn.addEventListener("click", async () => {
         password: passwordInput.value
     };
 
-    const response = await fetch("/auth/login", {
+    const response = await fetch("/api/auth/login", {
 
         method: "POST",
 
@@ -66,7 +66,7 @@ loginBtn.addEventListener("click", async () => {
 // PROFILE
 profileBtn.addEventListener("click", async () => {
 
-    const response = await fetch("/user/profile");
+    const response = await fetch("/api/user/profile");
 
     const text = await response.json();
     const message = text.message;
@@ -76,7 +76,7 @@ profileBtn.addEventListener("click", async () => {
 
 // LOGOUT
 logoutBtn.addEventListener("click", async () => {
-    const response = await fetch("/user/logout");
+    const response = await fetch("/api/user/logout");
     const text = await response.json();
     const message = text.message;
     alert(message);
@@ -84,7 +84,7 @@ logoutBtn.addEventListener("click", async () => {
 
 // DELETE ACCOUNT
 deleteBtn.addEventListener("click", async () => {
-    const response = await fetch("/user/deleteAccount", {
+    const response = await fetch("/api/user/deleteAccount", {
         method: "POST"
     });
 

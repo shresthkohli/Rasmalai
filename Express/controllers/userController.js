@@ -10,7 +10,6 @@ console.log("request reached userController.");
 
 // ME CONTROLLER
 async function me(req, res, next) {
-    console.log("request reached me controller.");
     try {
         const cookies = req.cookies;
 
@@ -65,8 +64,6 @@ async function profile(req, res, next) {
 // LOGOUT CONTROLLER
 async function logout(req, res, next) {
 
-    console.log("request reached logout controller.");
-
     try {
         await userService.logout(req.sessionId);
 
@@ -76,8 +73,6 @@ async function logout(req, res, next) {
                 httpOnly: true
             }
         );
-        
-        console.log(`User ${req.username} logged out.`);
 
         res.status(200).json({
             success: true,

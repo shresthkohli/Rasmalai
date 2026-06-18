@@ -1,26 +1,39 @@
 import { useState } from "react";
 
-import { signupUser } from "../api/authApi";
+import { loginUser } from "../api/authApi";
+
+import { useAuth } from "../context/AuthContext";
 
 import { useNavigate } from "react-router-dom";
 
 
-function SignupCard(){
 
-    const Navigate = useNavigate();
-
-    const [username,setUsername] = useState("");
-
-    const [password,setPassword] = useState("");
+function LoginCard() {
 
 
+    const { setUser } = useAuth();
 
-    async function handleClick(e){
+    const navigate = useNavigate();
+
+    const [username, setUsername] =
+        useState("");
+
+
+
+    const [password, setPassword] =
+        useState("");
+
+
+
+
+    async function handleLogin(e) {
 
 
         e.preventDefault();
 
-        const result = await signupUser(
+
+
+        const result = await loginUser(
 
             username,
 
@@ -28,25 +41,27 @@ function SignupCard(){
 
         );
 
-        console.log("RESULT: ", result);
+
 
         if (result.success) {
 
-            alert(result.message, "Please Login to continue");
+            setUser({
 
-            console.log(result);
+                username
 
-            Navigate("/login");
+            });
+
+            navigate("/");
 
         }
 
-        else {
-
+        else{
             alert(result.message);
-
         }
+
 
     }
+
 
 
 
@@ -72,7 +87,7 @@ function SignupCard(){
 
             <h1 className="text-4xl font-bold mb-5 mx-auto">
 
-                Create Account
+                Login
 
             </h1>
 
@@ -89,7 +104,7 @@ function SignupCard(){
 
             <form
 
-            onSubmit={handleClick}
+            onSubmit={handleLogin}
 
             >
 
@@ -126,11 +141,11 @@ function SignupCard(){
 
                 <button
 
-                className="bg-blue-300 p-3 w-full mx-auto my-0 text-center text-lg hover:bg-blue-400"
+                className="bg-blue-300 p-3 w-full mx-auto my-0 text-center text-lg  hover:bg-blue-400"
 
                 >
 
-                    Signup
+                    Login
 
                 </button>
 
@@ -146,4 +161,4 @@ function SignupCard(){
 }
 
 
-export default SignupCard;
+export default LoginCard;

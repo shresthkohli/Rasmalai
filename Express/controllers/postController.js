@@ -68,6 +68,41 @@ async function getPosts(req, res, next){
 }
 
 
+// GET MY POSTS CONTROLLER
+async function getMyPosts(req,res,next){
+
+
+    try{
+
+
+        const userId = req.user_id;
+        console.log("USER ID:", req.user_id);
+
+        const posts = await postService.getMyPosts(userId);
+
+
+        res.json({
+
+            success:true,
+
+            posts
+
+        });
+
+
+    }
+
+
+    catch(err){
+
+        next(err);
+
+    }
+
+
+}
+
+
 // DELETE POST CONTROLLER
 async function deletePost(req, res, next){
 
@@ -105,6 +140,7 @@ module.exports = {
 
     createPost,
     getPosts,
+    getMyPosts,
     deletePost
 
 };

@@ -52,3 +52,41 @@ export async function createPost(title,content){
 
 
 }
+
+export async function getMyPosts() {
+
+    const res = await fetch(
+
+        "/api/posts/me",
+
+        {
+
+            credentials: "include"
+
+        }
+
+    );
+
+    return await res.json();
+
+}
+
+export async function deletePost(postId){
+
+    const res = await fetch(
+
+        `/api/posts/${postId}`,
+
+        {
+
+            method:"DELETE",
+
+            credentials:"include"
+
+        }
+
+    );
+
+    return await res.json();
+
+}

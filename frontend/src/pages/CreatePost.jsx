@@ -7,14 +7,13 @@ import { useNavigate } from "react-router-dom";
 
 function CreatePost({ setPosts }) {
 
-
     const [title, setTitle] = useState("");
 
     const [content, setContent] = useState("");
 
     const navigate = useNavigate();
 
-
+    
     async function handleSubmit(e) {
 
 
@@ -57,35 +56,55 @@ function CreatePost({ setPosts }) {
 
     return (
 
-        <div className="p-8">
+        <div className="
+        mx-auto
+        my-10
+        p-2
+        border-2
+        border-dashed
+        rounded-3xl
+        w-[90%]
+        h-auto
+        bg-gray-200
+        shadow-md
+        text-center
+        "
+        >
 
 
-            <h1 className="text-3xl font-bold mb-6">
+            <h1 className="text-3xl font-bold mb-5 mx-auto">
 
-                Create Post
+                Post Something
 
             </h1>
 
 
+        <div
+        className="
+        bg-white
+        rounded-2xl
+        flex
+        flex-col
+        overflow-hidden
+        "
+        >
 
             <form
 
-                onSubmit={handleSubmit}
-
-                className="flex flex-col gap-4 max-w-xl"
+            onSubmit={handleSubmit}
 
             >
 
 
                 <input
 
-                    className="border p-3 rounded"
+                className="border-b p-3 w-full mx-auto my-0 text-left text-3xl font-semibold hover:bg-gray-100 outline-none focus:bg-gray-100"
 
-                    placeholder="Title"
+                placeholder="Title"
 
-                    value={title}
+                value={title}
 
-                    onChange={(e) => setTitle(e.target.value)}
+                onChange={(e)=>setTitle(e.target.value)}
 
                 />
 
@@ -93,15 +112,15 @@ function CreatePost({ setPosts }) {
 
                 <textarea
 
-                    className="border p-3 rounded"
+                className=" p-3 w-full mx-auto my-0 text- text-xl hover:bg-gray-100 outline-none focus:bg-gray-100"
 
-                    placeholder="Content"
+                type="textbox"
 
-                    rows="5"
+                placeholder="Content"
 
-                    value={content}
+                value={content}
 
-                    onChange={(e) => setContent(e.target.value)}
+                onChange={(e)=>setContent(e.target.value)}
 
                 />
 
@@ -109,7 +128,7 @@ function CreatePost({ setPosts }) {
 
                 <button
 
-                    className="bg-blue-500 text-white p-3 rounded"
+                className="bg-blue-300 p-3 w-full mx-auto my-0 text-center text-lg hover:bg-blue-400"
 
                 >
 
@@ -118,8 +137,9 @@ function CreatePost({ setPosts }) {
                 </button>
 
 
-            </form>
 
+            </form>
+        </div>
 
         </div>
 
