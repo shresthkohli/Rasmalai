@@ -5,7 +5,7 @@ async function requireLogin(req,res,next){
 
     const cookies = req.cookies;
 
-    if(!cookies.sessionId){
+    if(!cookies.session_id){
 
         res.status(401).json({
             success: false,
@@ -15,7 +15,7 @@ async function requireLogin(req,res,next){
 
     }
 
-    const sessionId = cookies.sessionId;
+    const sessionId = cookies.session_id;
 
     const user = await sessionService.getSession(sessionId);
 
