@@ -1,7 +1,11 @@
+import { API_URL } from "../config";
+
+
+// ME API
 export async function getCurrentUser(){
 
 
-    const res = await fetch("/api/user/me",{
+    const res = await fetch(`${API_URL}/api/user/me`,{
 
 
         credentials:"include"
@@ -20,11 +24,11 @@ export async function getCurrentUser(){
 }
 
 
-
+// LOGOUT API
 export async function logoutUser(){
 
 
-    const res = await fetch("/api/user/logout",{
+    const res = await fetch(`${API_URL}/api/user/logout`,{
 
         credentials:"include"
 
@@ -42,7 +46,7 @@ export async function logoutUser(){
 export async function deleteAccount() {
     
 
-    const res = await fetch("/api/user/deleteAccount",{
+    const res = await fetch(`${API_URL}/api/user/deleteAccount`,{
 
         method: "DELETE",
 

@@ -1,7 +1,11 @@
+import { API_URL } from "../config";
+
+
+// SIGNUP API
 export async function signupUser(username,password){
 
 
-    const res = await fetch("/api/auth/signup",{
+    const res = await fetch(`${API_URL}/api/auth/signup`,{
 
 
         method:"POST",
@@ -36,10 +40,12 @@ export async function signupUser(username,password){
 
 }
 
+
+// LOGIN API
 export async function loginUser(username,password){
 
 
-    const res = await fetch("/api/auth/login",{
+    const res = await fetch(`${API_URL}/api/auth/login`,{
 
 
         method:"POST",

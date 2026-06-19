@@ -1,7 +1,11 @@
+import { API_URL } from "../config";
+
+
+// GET ALL POSTS API
 export async function getPosts(){
 
 
-    const res = await fetch("/api/posts");
+    const res = await fetch(`${API_URL}/api/posts`);
 
 
     const data = await res.json();
@@ -12,10 +16,12 @@ export async function getPosts(){
 
 }
 
+
+// CREATE POST API
 export async function createPost(title,content){
 
 
-    const res = await fetch("/api/posts",{
+    const res = await fetch(`${API_URL}/api/posts`,{
 
 
         method:"POST",
@@ -53,11 +59,13 @@ export async function createPost(title,content){
 
 }
 
+
+// GET MY POSTS API
 export async function getMyPosts() {
 
     const res = await fetch(
 
-        "/api/posts/me",
+        `${API_URL}/api/posts/me`,
 
         {
 
@@ -71,11 +79,13 @@ export async function getMyPosts() {
 
 }
 
+
+// DELETE POST API
 export async function deletePost(postId){
 
     const res = await fetch(
 
-        `/api/posts/${postId}`,
+        `${API_URL}/api/posts/${postId}`,
 
         {
 
