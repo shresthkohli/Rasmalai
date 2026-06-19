@@ -27,7 +27,7 @@ async function signUp(req, res, next) {
 // LOGIN CONTROLLER
 async function login(req, res, next) {
     try {
-        const result =
+        const session_id =
             await authService.login(
                 req.body.username,
                 req.body.password
