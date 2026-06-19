@@ -104,9 +104,7 @@ async function login(username, password) {
     const sessionId =
         await sessionService.createSession(user.id);
 
-    return {
-        sessionId: sessionId
-    };
+    return sessionId;
 
 }
 
