@@ -9,7 +9,7 @@ const app = express();
 
 app.use(cors({
 
-    origin: true,
+    origin: "https://my-first-app-nine-iota.vercel.app/",
 
     credentials: true
 
