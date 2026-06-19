@@ -2,9 +2,18 @@ const express = require("express");
 const fs = require("fs");
 const cookieParser = require("cookie-parser");
 const errorHandler = require("./middleware/errorHandler");
+const cors = require("cors");
 
 
 const app = express();
+
+app.use(cors({
+
+    origin: process.env.FRONTEND_URL,
+
+    credentials:true
+
+}));
 
 app.use(cookieParser());
 
@@ -45,8 +54,11 @@ app.get("/", (req, res) => {
 app.use(errorHandler);
 
 
-app.listen(3000, () => {
+const PORT = process.env.PORT || 3000;
 
-    console.log("Server running");
+
+app.listen(PORT, ()=>{
+
+    console.log(`Server running on ${PORT}`);
 
 });

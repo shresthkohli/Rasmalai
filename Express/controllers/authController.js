@@ -35,11 +35,19 @@ async function login(req, res, next) {
 
 
         res.cookie(
-            "sessionId",
-            result.sessionId,
+            "session_id",
+            sessionId,
             {
+
                 httpOnly: true,
-                sameSite: "strict"
+
+                secure: process.env.NODE_ENV === "production",
+
+                sameSite:
+                    process.env.NODE_ENV === "production"
+                        ? "none"
+                        : "lax"
+
             }
         );
 
