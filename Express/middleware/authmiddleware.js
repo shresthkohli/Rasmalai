@@ -15,7 +15,6 @@ async function requireLogin(req,res,next){
 
     }
 
-
     const sessionId = cookies.sessionId;
 
     const user = await sessionService.getSession(sessionId);
