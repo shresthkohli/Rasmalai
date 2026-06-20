@@ -471,7 +471,3 @@ Shresth Kohli
 Built as a learning project to understand full-stack web development, backend architecture, authentication, databases, and production deployment.
 
 ---
-
-This one is actually safe to paste directly into `README.md` 😂
-
-Also your guess was right — because my response itself uses markdown formatting, nesting markdown inside markdown is a classic trap. You caught the exact issue. 😭
