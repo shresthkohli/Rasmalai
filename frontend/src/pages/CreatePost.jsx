@@ -19,7 +19,13 @@ function CreatePost({ setPosts }) {
 
         e.preventDefault();
 
+        if(title.trim() === "" || content.trim() === ""){
 
+        alert("Title and content cannot be empty");
+
+        return;
+
+    }
 
         const result = await createPost(
 
@@ -98,6 +104,8 @@ function CreatePost({ setPosts }) {
 
                 <input
 
+                maxLength={100}
+
                 className="border-b p-3 w-full mx-auto my-0 text-left text-3xl font-semibold hover:bg-gray-100 outline-none focus:bg-gray-100"
 
                 placeholder="Title"
@@ -111,6 +119,8 @@ function CreatePost({ setPosts }) {
 
 
                 <textarea
+
+                maxLength={1000}
 
                 className=" p-3 w-full mx-auto my-0 text- text-xl hover:bg-gray-100 outline-none focus:bg-gray-100"
 

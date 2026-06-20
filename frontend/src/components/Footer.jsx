@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="flex flex-col gap-4">
           <h3 className="text-xl font-bold tracking-wider">ABOUT THE APP</h3>
           <p className="text-gray-400 text-sm leading-relaxed">
-            A full-stack social media platform built with a minimalist UI philosophy: 
+            A full-stack social media platform built with a minimalist UI philosophy:
             <span className="italic text-gray-300"> "Why overcomplicate the styling when there is so much to learn in backend development?"</span>
           </p>
         </div>
@@ -23,7 +23,7 @@ export default function Footer() {
               <strong className="text-white">Frontend:</strong> React.js
             </li>
             <li>
-              <strong className="text-white">Backend:</strong> Express.js 
+              <strong className="text-white">Backend:</strong> Express.js
               <span className="block mt-1 text-gray-500 text-xs">
                 Production-style architecture featuring Cookie Authentication, Role-Based Authorization, Input Validation, and Global Error Handling.
               </span>
@@ -41,18 +41,18 @@ export default function Footer() {
         <div className="flex flex-col gap-4 md:items-end">
           <h3 className="text-xl font-bold tracking-wider">LET'S CONNECT</h3>
           <div className="flex flex-col gap-3 md:items-end text-sm">
-            <Link 
-              href="YOUR_GITHUB_REPO_URL" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <Link
+              href="https://github.com/shresthkohli/Rasmalai"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-colors flex items-center gap-2"
             >
               View the Source Code ↗
             </Link>
-            <Link 
-              href="YOUR_LINKEDIN_URL" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <Link
+              href="www.linkedin.com/in/shresth-kohli"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-colors flex items-center gap-2"
             >
               Find me on LinkedIn ↗

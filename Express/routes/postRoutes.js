@@ -10,12 +10,17 @@ const postController =
 const requireLogin =
     require("../middleware/authMiddleware");
 
+const validate =
+    require("../middleware/validate");
 
+const { createPostSchema } =
+    require("../validators/postValidator");
 
 // CREATE POST ROUTER
 router.post(
     "/",
     requireLogin,
+    validate(createPostSchema),
     postController.createPost
 );
 
