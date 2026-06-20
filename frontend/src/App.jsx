@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import ProtectedRoute from "./components/ProtectedRoutes";
+import { API_URL } from "./config";
 
 import {
   BrowserRouter,
@@ -31,7 +32,7 @@ function App() {
   useEffect(() => {
 
 
-    fetch("/user/me", {
+    fetch(`${API_URL}/api/user/me`, {
 
       credentials: "include"
 
