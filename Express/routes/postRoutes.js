@@ -13,7 +13,7 @@ const requireLogin =
 const validate =
     require("../middleware/validate");
 
-const { createPostSchema } =
+const createPostSchema =
     require("../validators/postValidator");
 
 // CREATE POST ROUTER
